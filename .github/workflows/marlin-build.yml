@@ -1,0 +1,34 @@
+name: Build Marlin Firmware
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'config/**.h'
+
+jobs:
+  build_and_push:
+    name: Compile and Push Firmware
+    runs-on: ubuntu-latest
+    env:
+      BOARD: BOARD_GT2560_V3_A20
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Compile firmware
+        run: |
+          docker run \
+            -u root:root \
+            -e BOARD \
+            -e UPDATE_FORCE=true \
+            -v $(pwd)/firmware:/home/platformio/build \
+            -v $(pwd)/config:/home/platformio/CustomConfiguration \
+            frealmyr/marlin-build:latest
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: marlin-firmware-a20t-btt3in1
+          path: firmware/
