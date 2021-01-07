@@ -19,13 +19,14 @@ jobs:
 
       - name: Compile firmware
         run: |
+          dokcer build -t marlin-build .
           docker run \
             -u root:root \
-            -e BOARD \
+            -e BOARD=$BOARD \
             -e UPDATE_FORCE=true \
             -v $(pwd)/firmware:/home/platformio/build \
             -v $(pwd)/config:/home/platformio/CustomConfiguration \
-            frealmyr/marlin-build:latest
+            marlin-build
 
       - uses: actions/upload-artifact@v2
         with:
