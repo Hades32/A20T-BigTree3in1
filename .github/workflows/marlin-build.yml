@@ -19,7 +19,7 @@ jobs:
 
       - name: Compile firmware
         run: |
-          dokcer build -t marlin-build .
+          docker build -t marlin-build .
           docker run \
             -u root:root \
             -e BOARD=$BOARD \
