@@ -465,15 +465,15 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
-#define HEATER_1_MAXTEMP 275
-#define HEATER_2_MAXTEMP 275
-#define HEATER_3_MAXTEMP 275
-#define HEATER_4_MAXTEMP 275
-#define HEATER_5_MAXTEMP 275
-#define HEATER_6_MAXTEMP 275
-#define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      150
+#define HEATER_0_MAXTEMP 254
+#define HEATER_1_MAXTEMP 254
+#define HEATER_2_MAXTEMP 254
+#define HEATER_3_MAXTEMP 254
+#define HEATER_4_MAXTEMP 254
+#define HEATER_5_MAXTEMP 254
+#define HEATER_6_MAXTEMP 254
+#define HEATER_7_MAXTEMP 254
+#define BED_MAXTEMP      120
 
 //===========================================================================
 //============================= PID Settings ================================
@@ -1124,8 +1124,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 250
-#define Y_BED_SIZE 250
+#define X_BED_SIZE 246
+#define Y_BED_SIZE 246
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -5
@@ -1300,7 +1300,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 3
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
