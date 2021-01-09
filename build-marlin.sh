@@ -52,7 +52,7 @@ while IFS= read -r line; do
 done <<< $(find /home/platformio/CustomConfiguration/ -name '*.h' -exec basename {} .h \;)
 
 # Change the default board with value in environment variable
-sed -i "s/default_envs = .*/default_envs = $BOARD/g" /home/platformio/Marlin/platformio.ini
+sed -i "s/default_envs = .*/default_envs = ${BOARD}/g" /home/platformio/Marlin/platformio.ini
 
 # Build Marlin firmware
 printf "\e[1;35mCompiling Marlin firmware..\e[0m\n\n"
@@ -61,12 +61,12 @@ platformio run -d Marlin/
 success=$?
 
 if [[ ${success} -eq 0 ]]; then
-  OUTPUT_DIR=/home/platformio/build/$BOARD
-  mkdir -p $OUTPUT_DIR
+  OUTPUT_DIR=/home/platformio/build/${BOARD}
+  mkdir -p ${OUTPUT_DIR}
 
   printf "\nCopying compiled firmware to output folder..\n"
-  cd /home/platformio/Marlin/.pio/build/$BOARD
-  mv *.hex "$OUTPUT_DIR/$BOARD_$(date +%Y-%m-%d_%H%M).hex"
+  cd /home/platformio/Marlin/.pio/build/${BOARD}
+  mv *.hex "${OUTPUT_DIR}/${BOARD}_$(date +%Y-%m-%d_%H%M).hex"
 
 else
   printf "\n\e[1;31mBuild failed! \e[0mCheck the output above for errors\n"
