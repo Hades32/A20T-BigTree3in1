@@ -66,7 +66,7 @@ if [[ ${success} -eq 0 ]]; then
 
   printf "\nCopying compiled firmware to output folder..\n"
   cd /home/platformio/Marlin/.pio/build/$BOARD
-  cp *.hex "$OUTPUT_DIR"
+  mv *.hex "$OUTPUT_DIR/$BOARD_$(date +%Y-%m-%d_%H%M).hex"
 
 else
   printf "\n\e[1;31mBuild failed! \e[0mCheck the output above for errors\n"
