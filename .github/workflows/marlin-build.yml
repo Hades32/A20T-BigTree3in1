@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BOARD: mega2560
+      MARLIN_VER: 2.0.6.1
 
     steps:
       - name: Check out repo
@@ -23,7 +24,7 @@ jobs:
           docker run \
             -u root:root \
             -e BOARD=$BOARD \
-            -e UPDATE_FORCE=true \
+            -e USE_TAG=$MARLIN_VER \
             -v $(pwd)/firmware:/home/platformio/build \
             -v $(pwd)/config:/home/platformio/CustomConfiguration \
             marlin-build
