@@ -145,9 +145,6 @@
 // :[0, 1, 2, 3, 4, 5, 6, 7, 8]
 // A20T-BTT3in1
 #define EXTRUDERS 3
-#if EXTRUDERS > 1
-  #define HAS_MULTI_EXTRUDER true
-#endif
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
@@ -986,7 +983,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -40, 0, -0.4 }
+#define NOZZLE_TO_PROBE_OFFSET { -40, 0, -0.35 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
