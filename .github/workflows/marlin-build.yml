@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BOARD: mega2560
-      MARLIN_VER: 2.0.6.1
+      MARLIN_VER: 2.0.7.2
 
     steps:
       - name: Check out repo
