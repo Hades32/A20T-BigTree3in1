@@ -465,7 +465,8 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 254
+// MR: it seems these numbers - 15 is the max temp you can set the hot-end to
+#define HEATER_0_MAXTEMP 274
 #define HEATER_1_MAXTEMP 254
 #define HEATER_2_MAXTEMP 254
 #define HEATER_3_MAXTEMP 254
