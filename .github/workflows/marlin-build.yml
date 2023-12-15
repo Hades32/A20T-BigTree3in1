@@ -28,7 +28,7 @@ jobs:
           ./create-build-image.sh
           ./build.sh
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: marlin-firmware-a20t-btt3in1
           path: firmware/
